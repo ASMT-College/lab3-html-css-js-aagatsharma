@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="dynamic_table"></div>
+    <script>
+      var myDivision = document.getElementById("dynamic_table");
+      var myTable = document.createElement("table");
+
+      var headingRow = document.createElement("tr");
+      var headingColumn1 = document.createElement("td");
+      var headingColumn2 = document.createElement("td");
+      var headingColumn3 = document.createElement("td");
+      headingColumn1.innerHTML = "Name";
+      headingColumn2.innerHTML = "Age";
+      headingColumn3.innerHTML = "Email";
+
+      headingRow.appendChild(headingColumn1);
+      headingRow.appendChild(headingColumn2);
+      headingRow.appendChild(headingColumn3);
+      myTable.appendChild(headingRow);
+
+      var myData = [
+        { name: "john", age: 20, email: "abc@gmail.com" },
+        {
+          name: "jack",
+          age: 50,
+          email: "def@gmail.com",
+        },
+        {
+          name: "smirti",
+          age: 10,
+          email: "sss@gmail.com",
+        },
+      ];
+
+      for (i = 0; i < myData.length; i++) {
+        var row = document.createElement("tr");
+        var rowCol1 = document.createElement("td");
+        var rowCol2 = document.createElement("td");
+        var rowCol3 = document.createElement("td");
+
+        rowCol1.innerHTML = myData[i].name;
+        rowCol2.innerHTML = myData[i].age;
+        rowCol3.innerHTML = myData[i].email;
+        row.appendChild(rowCol1);
+        row.appendChild(rowCol2);
+        row.appendChild(rowCol3);
+        myTable.appendChild(row);
+      }
+
+      myDivision.appendChild(myTable);
+    </script>
+  </body>
+</html>

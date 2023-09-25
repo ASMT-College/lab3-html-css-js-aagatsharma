@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // create direct instance of object
+      function xyz() {
+        document.write("The name is:" + this.name);
+      }
+
+      var ram = { name: "ram", age: 25, address: "sitapaila", showDetail: xyz };
+
+      ram.showDetail();
+
+      // user defined object
+      function person(n, a, ad) {
+        this.name = n;
+        this.age = a;
+        this.address = ad;
+        this.showDetail = xyz;
+      }
+
+      var hero = new person("BIKASH", 21, "whereever");
+
+      hero.showDetail();
+
+      //area of circle
+      function area() {
+        document.write(Math.PI * this.radius * this.radius);
+      }
+
+      var mycircle = { radius: 7, showArea: area };
+
+      mycircle.showArea();
+
+      function circle(r) {
+        this.radius = r;
+        this.showArea = area;
+      }
+
+      var shape = new circle(21);
+
+      shape.showArea();
+    </script>
+  </body>
+</html>
